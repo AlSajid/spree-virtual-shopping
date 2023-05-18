@@ -30,14 +30,16 @@ export default function Header() {
           )}
         </div>
 
+        {/* logo */}
         <div className="lg:col-span-3 col-span-9 ">
-          <Link href="/" className="flex justify-start px-1">
+          <Link href="/" className="">
             <Image
               src="/logo.png"
               alt="logo"
               width="200"
               height="800"
-              className="h-8 lg:h-12 lg:my-4 my-2"
+              priority={true}
+              className="flex justify-start px-1 h-8 lg:h-12 lg:my-4 my-2"
             />
           </Link>
         </div>
@@ -63,10 +65,7 @@ export default function Header() {
       {/* mobile view */}
       <div className="block lg:hidden m-auto my-3 ">
         {isMenuOpen && (
-          <CategoryList
-          // isMenuOpen={isMenuOpen}
-          // setIsMenuOpen={setIsMenuOpen}
-          />
+          <CategoryList isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         )}
         <Search />
       </div>
