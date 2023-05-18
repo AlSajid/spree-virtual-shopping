@@ -1,11 +1,15 @@
 "use client";
 import Link from "next/link";
 import CategoryList from "../CategoryList";
-import Search from "./Search";
-// import Logo from "./Logo";
+
+import { GiHamburgerMenu } from "react-icons/gi";
+import { ImCross } from "react-icons/im";
 // import RightMenu from "./RightMenu/RightMenu";
 import { useState } from "react";
 import Image from "next/image";
+import CartHeader from "./CartHeader";
+import ProfileHeader from "./profile/ProfileHeader";
+import Search from "./Search";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,39 +20,13 @@ export default function Header() {
         {/* hamburger button */}
         <div className="text-2xl lg:hidden col-span-1 flex justify-center items-center">
           {isMenuOpen ? (
-            <label className=" p-0 py-0" onClick={() => setIsMenuOpen(false)}>
-              <svg
-                className="h-12 w-12"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16 8L8 16M12 12L16 16M8 8L10 10"
-                  stroke="#000000"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </label>
+            <div className=" p-0 py-0" onClick={() => setIsMenuOpen(false)}>
+              <GiHamburgerMenu />
+            </div>
           ) : (
-            <label className=" p-0 py-0" onClick={() => setIsMenuOpen(true)}>
-              <svg
-                className="h-7 w-7"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h7"
-                />
-              </svg>
-            </label>
+            <div className=" p-0 py-0" onClick={() => setIsMenuOpen(true)}>
+              <ImCross />
+            </div>
           )}
         </div>
 
@@ -57,8 +35,8 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="logo"
-              width="32"
-              height="48"
+              width="200"
+              height="800"
               className="h-8 lg:h-12 lg:my-4 my-2"
             />
           </Link>
@@ -68,7 +46,18 @@ export default function Header() {
           <Search />
         </div>
 
-        <div className="col-span-2 flex justify-end">{/* <RightMenu /> */}</div>
+        {/* right portion */}
+        <div className="col-span-2 flex justify-end">
+          <div className="flex justify-around items-center h-full">
+            <div className="right-menu">
+              <CartHeader />,
+            </div>
+
+            <div className="right-menu">
+              <ProfileHeader />
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* mobile view */}
