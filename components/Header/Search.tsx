@@ -7,10 +7,10 @@ export default function Search () {
     const [results, setResults] = useState([]);
     const timerRef = useRef(null);
 
-    const handleSearch = (e) => {
+    const handleSearch = () => {
     
-        if (e) e.preventDefault();
-        if (query.length < 1) return;
+        // if (e) e.preventDefault();
+        // if (query.length < 1) return;
 
         // fetch(`${getServer()}search?query=${query}`, {
         //     headers: {
