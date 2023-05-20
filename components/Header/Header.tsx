@@ -19,11 +19,11 @@ export default function Header() {
         <div className="text-2xl lg:hidden col-span-1 flex justify-center items-center">
           {isMenuOpen ? (
             <div className=" p-0 py-0" onClick={() => setIsMenuOpen(false)}>
-              <GiHamburgerMenu />
+              <ImCross />
             </div>
           ) : (
             <div className=" p-0 py-0" onClick={() => setIsMenuOpen(true)}>
-              <ImCross />
+              <GiHamburgerMenu />
             </div>
           )}
         </div>

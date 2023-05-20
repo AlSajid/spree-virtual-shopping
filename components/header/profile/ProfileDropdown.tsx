@@ -1,14 +1,16 @@
-import { BiGift } from "react-icons/bi";
+"use client";
+import { BiGift, BiUser } from "react-icons/bi";
 import { ImSwitch } from "react-icons/im";
 import { TbJewishStar } from "react-icons/tb";
-import { BiUser } from "react-icons/bi";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Link from "next/link";
 import { AllContexts } from "@/contexts/ContextProvider";
 
-export default function ProfileDropdown({ isDropdownOpen }: boolean) {
-  const { user } = useContext(AllContexts);
+export default function ProfileDropdown() {
+  const { user }: any = useContext(AllContexts);
   const { logOut, setCart }: any = useContext(AllContexts);
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleLogout = () => {
     logOut()
@@ -34,7 +36,10 @@ export default function ProfileDropdown({ isDropdownOpen }: boolean) {
 
   return (
     <>
-      <label className="text-white px-1 text-lg font-bold cursor-pointer">
+      <label
+        className="text-white px-1 text-lg font-bold cursor-pointer"
+        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+      >
         <BiUser className="text-2xl" />
       </label>
       {isDropdownOpen && (
