@@ -8,7 +8,7 @@ const useFeatured = () => {
   useEffect(() => {
     fetch(`${getServer()}featured`, {
       headers: {
-        Authorization: "Bearer " + process.env.REACT_APP_JWT_SECRET,
+        Authorization: "Bearer " + process.env.NEXT_PUBLIC_JWT_SECRET,
       },
     })
       .then((res) => res.json())

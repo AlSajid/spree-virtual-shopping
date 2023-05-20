@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import CategoryList from "../CategoryList";
+import CategoryList from "@/components/CategoryList";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
 import { useState } from "react";
@@ -62,9 +62,7 @@ export default function Header() {
 
       {/* mobile view */}
       <div className="block lg:hidden m-auto my-3 ">
-        {isMenuOpen && (
-          <CategoryList />
-        )}
+        {isMenuOpen && <CategoryList />}
         <Search />
       </div>
     </>
